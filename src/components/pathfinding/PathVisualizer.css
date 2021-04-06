@@ -1,0 +1,149 @@
+.container {
+  display: flex;
+}
+
+.grid {
+  padding: 0;
+  width: fit-content;
+  margin: 38px 40px;
+  font-size: 0;
+  border-top: 1px solid rgba(0, 130, 170, 0.63);
+  border-left: 1px solid rgba(0, 130, 170, 0.63);
+}
+
+.controls {
+  width: 400px;
+  background-color: rgb(61, 61, 61);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  border-top: 1px solid rgba(255, 255, 255, 0.52);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+}
+
+.algorithm-name {
+  color: white;
+  margin: 30px 100% 40px;
+  width: 60px;
+  height: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  border-top: 1px solid rgba(255, 255, 255, 0.52);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+}
+
+.key {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.52);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.key > div {
+  float: left;
+  display: flex;
+  width: fit-content;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+  margin: 10px auto;
+}
+
+.key p {
+  float: left;
+  width: fit-content;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  margin-left: 5px;
+  align-self: center;
+  color: rgba(255, 255, 255, 0.89);
+}
+
+.keyIcon {
+  display: flex;
+  float: left;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  background-color: rgba(255, 255, 255, 0.842);
+  border-radius: 20px;
+}
+
+.keyIcon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Visited Node */
+.visited div {
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+}
+
+/* Start Node */
+.start img {
+  max-width: 80%;
+  max-height: 80%;
+  margin: 0px;
+}
+
+.start p {
+  color: rgb(57, 200, 88);
+}
+
+/* Finish Node */
+.finish p {
+  color: rgb(235, 69, 69);
+}
+
+/* Clear/Visualize Button */
+.gridButtons {
+  width: 100%;
+  margin: 80px 0px 0px;
+}
+
+.visualize {
+  width: 100%;
+  height: 80px;
+  margin: 20px 0px 0px;
+  font-size: 35px;
+  background-color: rgb(54, 54, 54);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  transition: 0.3s;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.52);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+}
+
+.visualize:hover {
+  background: rgb(87, 87, 87);
+}
+
+.visualize:focus {
+  outline: none;
+}
+
+.clear {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(54, 54, 54);
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.52);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+  transition: 0.3s;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.clear:hover {
+  background: rgb(87, 87, 87);
+}

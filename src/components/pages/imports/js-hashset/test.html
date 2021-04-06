@@ -1,0 +1,94 @@
+ 
+<html>
+<head>
+<title>JS Searchable HashSet Benchmark</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<script src='hashset.js'></script>
+</head>
+<body>
+
+  <div class="container">
+
+      <div class="page-header">
+        <h1>JS Searchable HashSet Benchmark</h1>
+        <p> This page will test the performace of lookups on a hashset compared to a conventsional array.  It will input with 10000 entries into eash, double checking for duplicates on each insert.</p>
+
+        <br><button type="button" class="btn btn-info" onclick='benchmark(10000)'>Test</button>
+      </div>
+ 
+      <div id='output'> </div>
+
+</div>
+
+<script>
+ 
+ function benchmark(num) {
+    var myarray = [];
+
+    var myhashset = new hashSet();
+
+    var t0 = performance.now();
+
+    for (var i = 0; i < num; i++) {
+        var value = ("val" + i);
+        if (myarray.indexOf(value) === -1) {
+            myarray.push(value);
+        }
+    }
+
+    var time_array = performance.now() - t0;
+
+    var t0 = performance.now();
+
+    for (var i = 0; i < num; i++) {
+        var value = ("val" + i);
+        myhashset.add(value);
+    }
+
+    var time_hashset = performance.now() - t0;
+
+    report([
+        ["HashSet Time Taken", time_hashset],
+        ["Array Time Taken", time_array]
+    ]);
+
+
+}
+
+function report(input) {
+    var max = 0;
+    var min = 99999999999;
+
+    for (var i = 0; i < input.length; i++) {
+
+        var val = input[i][1];
+        if (val > max) {
+            max = val;
+        }
+        if (val < min) {
+            min = val;
+        }
+    }
+
+    var report = document.getElementById('output');
+    report.innerHTML = '';
+
+    for (var i = 0; i < input.length; i++) {
+        var val = input[i][1];
+        report.innerHTML += "<h3>" + input[i][0] + "</h3>";
+        var percent = Math.round(val / max * 100);
+        var val = Math.round(val * 100) / 100;
+
+        report.innerHTML += ' <div  class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="' + val + '" aria-valuemin="0" aria-valuemax="' + val + '" style="width:' + percent + '%;"></div><br>';
+
+        report.innerHTML += "<b>" + val + " milliseconds</b>";
+
+
+    }
+
+	}
+</script>
+
+</body>
