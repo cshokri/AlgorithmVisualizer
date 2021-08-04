@@ -7,14 +7,17 @@
   border-right: 1px solid rgba(0, 130, 170, 0.63);
   display: inline-block;
   transition: 0.5s;
+  user-select: none;
 }
 
 .node-start {
   background-color: green;
+  content: url("../start.png");
 }
 
 .node-finish {
   background-color: red;
+  content: url("../finish.jpg");
 }
 
 .node-visited {

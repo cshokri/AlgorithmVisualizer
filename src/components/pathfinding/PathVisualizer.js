@@ -1,7 +1,7 @@
 import React from "react";
 import "./PathVisualizer.css";
 import Node from "./Node/Node.js";
-import flag from "./FlagIcon.jpg";
+import flag from "./finish.jpg";
 import start from "./start.png";
 
 const START_ROW = 12;
@@ -55,15 +55,10 @@ class PathVisualizer extends React.Component {
   }
 
   animate(visitedNodesInOrder) {
-    for (let i = 0; i < visitedNodesInOrder.length; i++) {
+    for (let i = 0; i < visitedNodesInOrder.length - 1; i++) {
       setTimeout(() => {
         let node = visitedNodesInOrder[i];
-        const newGrid = this.state.grid.slice();
-        const newNode = {
-          ...node,
-          isVisited: true,
-        };
-        newGrid[node.row][node.col] = newNode;
+
         document.getElementById("node-" + node.row + "-" + node.col).className =
           "node node-visited";
         //this.setState({ grid: newGrid });
@@ -71,7 +66,19 @@ class PathVisualizer extends React.Component {
     }
   }
 
-  clearGrid() {}
+  clearGrid() {
+    this.setState({ grid: getInitialGrid() });
+    for (let i = 0; i < this.state.grid.length; i++) {
+      for (let j = 0; j < this.state.grid[0].length; j++) {
+        if (
+          !(START_ROW == i && START_COL == j) &&
+          !(END_ROW == i && END_COL == j)
+        ) {
+          document.getElementById("node-" + i + "-" + j).className = "node";
+        }
+      }
+    }
+  }
 
   render() {
     const { grid, mouseIsPressed } = this.state;
@@ -116,10 +123,12 @@ class PathVisualizer extends React.Component {
           <h1 className="algorithm-name">{this.state.name}</h1>
 
           <div className="key">
+            {/*
             <div className="visited">
               <div />
               <p>Visited Nodes</p>
             </div>
+            */}
             <div className="start">
               <div className="keyIcon">
                 <img src={start} alt="Start" />

@@ -27,6 +27,11 @@
   margin: 0px 10px;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 .buttons > button:hover,
 .menu:hover {
   background: rgb(87, 87, 87);
@@ -76,14 +81,18 @@
   margin: 10px 20px;
   display: block;
   white-space: nowrap;
-  color: rgb(170, 170, 170);
-  font-size: 20px;
   background: none;
   border: none;
   outline: none;
+}
+
+.algorithms a {
+  color: rgb(170, 170, 170);
+  font-size: 20px;
   transition: 0.3s;
 }
 
-.algorithms button:hover {
+.algorithms button:hover,
+a:hover {
   color: white;
 }
